@@ -23,7 +23,9 @@
   font-family: 'HelveticaCondensed';
   src: local(HelveticaCondensed), url('./assets/fonts/ps.ttf');
 }
-
+html{
+  scroll-behavior: smooth;
+}
 * {
   margin: 0;
   padding: 0;
@@ -52,7 +54,7 @@ body {
 }
 
 .page {
-
+  position: relative;
   width: 100%;
   margin: 0 auto;
 
@@ -370,7 +372,14 @@ footer ul {
 
 }
 
-
+.button-top{
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+  z-index: 9999;
+}
 
 @media(min-width:768px) {
   .page {
