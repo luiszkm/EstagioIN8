@@ -14,6 +14,8 @@ export function LoadMobile() {
 
   let number = 0
 
+
+
   function createButton(number) {
     const buttonNav = document.createElement('button')
     buttonNav.classList.add('tablinks')
@@ -26,6 +28,18 @@ export function LoadMobile() {
     for (let i = 0; i < register.users.length; i++) {
       const button = createButton(i + 1)
       tabHed.append(button)
+      
+      //function teste() {
+      //   tabHed.querySelectorAll('.tablinks').forEach(button=>{
+      //     button.classList.remove('active');
+      //   })
+
+      //   tabBody.classList.add('active');
+      //   tabBody.querySelectorAll('.tabcontent').forEach(tab =>{
+      //     tab.classList.add('active');
+      //   })
+      //   this.classList.add('active');
+      // }
     }
   }
  
@@ -61,6 +75,7 @@ export function LoadMobile() {
     loadTabHead()
 
   }
+
 
   function openCard() {
 

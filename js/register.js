@@ -4,11 +4,11 @@ import { LoadMobile } from "./loadMobile.js"
 
 const load = Load()
 const loadMobile = LoadMobile()
-
 export function Register() {
 
   const loadUser = JSON.parse(localStorage.getItem('@register-list'))
   const users = loadUser || []
+
 
   let name = document.querySelector('#name')
   let email = document.querySelector('#email')
@@ -44,6 +44,9 @@ export function Register() {
     date.value = ""
     phone.value = ""
   }
+
+
+
 
   return{
     users
