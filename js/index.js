@@ -4,39 +4,37 @@ import { LoadMobile } from "./loadMobile.js";
 import { Menu } from "./menu.js";
 
 
-
 const load = Load()
 const register = Register()
 const menu = Menu()
 
+let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-// Precisa fazer a captura do width assim que carrega a pagina
+teste(width)
 
-window.onresize =  () => {
-  let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-console.log(width);
+function teste(width) {
 
   if (width >= 768) {
-    
     let tab = document.querySelector('.tab-content')
       .classList.add('hide')
 
     let table = document.querySelector('.table')
       .classList.remove('hide')
-    
-    
+
   }
   if (width < 768) {
-
     let tab = document.querySelector('.tab-content')
       .classList.remove('hide')
 
     let table = document.querySelector('.table')
       .classList.add('hide')
-
   }
 
-};
+}
 
+window.onresize = () => {
+  width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  teste(width)
+}
 
 
