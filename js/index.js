@@ -14,6 +14,7 @@ const menu = Menu()
 
 window.onresize =  () => {
   let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+console.log(width);
 
   if (width >= 768) {
     

@@ -11,6 +11,7 @@ export function Menu() {
   const menuBar = document.querySelector('.menuBar')
   
   let backToTopButton = document.querySelector('#backToTopButton')
+  backToTopButton.addEventListener('click', closeMenu)
   document.addEventListener('scroll', onscroll)
 
   function openMenu() {
@@ -25,7 +26,7 @@ export function Menu() {
     menuBar.classList.add('hide')
 
   }
-
+  
   function onscroll() {
 
     if (scrollY < 400) {
