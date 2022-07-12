@@ -37,6 +37,7 @@ export function Register() {
     loadMobile.showUser(0 ,users)
     
     name.focus()
+    load.checkList(users)
   }
 
   function clean() {

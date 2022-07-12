@@ -42,7 +42,17 @@ export function Load() {
       })
   }
 
+  const checkList = (register)=>{
+  
+  if(register.length === 0){
+    document.querySelector(".table-empty").classList.remove('hide')
+  }else{
+    document.querySelector(".table-empty").classList.add('hide')
+  }
+  }
+  checkList(register.users)
   return {
-    loadUsers
+    loadUsers,
+    checkList
   }
 }
