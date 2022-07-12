@@ -500,9 +500,12 @@ footer ul {
     left: 28%;
   }
 
+ 
   footer {
+    min-height: 16.2rem;
     font-size: 1.2rem;
-    background-image: url("./assets/rodape-desktop.jpg");
+    background-image: url("./assets/rodape-desktop.jpg"); 
+    background-position: center;
   }
 }
 
@@ -558,8 +561,6 @@ footer ul {
     background-image: url("./assets/rodape-desktop.jpg");
     background-size: contain;
     background-repeat: round;
-
-
   }
 }
 
