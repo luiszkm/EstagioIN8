@@ -9,7 +9,6 @@ export function Register() {
   const loadUser = JSON.parse(localStorage.getItem('@register-list'))
   const users = loadUser || []
 
-
   let name = document.querySelector('#name')
   let email = document.querySelector('#email')
   let date = document.querySelector('#birth')
@@ -34,7 +33,6 @@ export function Register() {
 
     load.loadUsers(users)
 
-
     loadMobile.loadUsersMobile(users)
     loadMobile.showUser(0 ,users)
     
@@ -47,9 +45,6 @@ export function Register() {
     date.value = ""
     phone.value = ""
   }
-
-
-
 
   return{
     users

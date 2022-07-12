@@ -4,12 +4,12 @@ import { Register } from "./register.js"
 const register = Register()
 
 export function Load() {
-  
+
   const tbody = document.querySelector('.table tbody')
- 
+
   let number = 0
 
-  const loadUsers =(users= register.users)=>{
+  const loadUsers = (users = register.users) => {
     removeTr()
     number = 0
     users.forEach(user => {
@@ -20,7 +20,7 @@ export function Load() {
     })
   }
 
- loadUsers()
+  loadUsers()
 
   function createRow(number, name, email, date, phone) {
     const tr = document.createElement('tr')
@@ -35,13 +35,12 @@ export function Load() {
 
   }
 
-  function removeTr(){
+  function removeTr() {
     tbody.querySelectorAll('tr')
-    .forEach(tr => {
-      tr.remove()
-    })
+      .forEach(tr => {
+        tr.remove()
+      })
   }
- 
 
   return {
     loadUsers

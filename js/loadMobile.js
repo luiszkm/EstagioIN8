@@ -18,8 +18,6 @@ export function LoadMobile() {
     const buttonNav = document.createElement('button')
     buttonNav.classList.add('tablinks')
     buttonNav.textContent = number
- 
-
     return buttonNav
   }
   const loadTabHead = (users = register.users) => {//carrega cabeçalho
@@ -91,13 +89,11 @@ export function LoadMobile() {
       button.addEventListener('click', e => {
         const buttonValue = e.target;
         value = buttonValue.innerHTML
-        showUser(Number(value)-1)
-      
+        showUser(Number(value) - 1)
+
         active(value)
 
       }))
-
-
   }
 
   const active = (value) => {
@@ -115,11 +111,11 @@ export function LoadMobile() {
     })
   }
 
-  const showUser = (value = 0,users = allUser )=>{
+  const showUser = (value = 0, users = allUser) => {
 
-     allUser = users
-     
-     allUser.map(user => {
+    allUser = users
+
+    allUser.map(user => {
 
       const tab = createTab(
         users[value].name,
@@ -129,9 +125,9 @@ export function LoadMobile() {
       )
       tabContent.append(tab)
     })
-   
+
   }
- 
+
   return {
     showUser,
     loadUsersMobile

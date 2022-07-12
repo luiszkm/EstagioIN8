@@ -3,7 +3,6 @@ import { Load } from "./load.js";
 import { LoadMobile } from "./loadMobile.js";
 import { Menu } from "./menu.js";
 
-
 const load = Load()
 const register = Register()
 const menu = Menu()
