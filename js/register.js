@@ -32,8 +32,10 @@ export function Register() {
     clean()
     alert("Usuário cadastrado com sucesso")
 
-    load.loadUsers()
-    loadMobile.loadUsersTab()
+    load.loadUsers(users)
+
+
+    loadMobile.loadUsersMobile(users)
     
     name.focus()
   }

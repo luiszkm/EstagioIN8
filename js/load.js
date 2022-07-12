@@ -6,20 +6,18 @@ const register = Register()
 export function Load() {
   
   const tbody = document.querySelector('.table tbody')
-  const tabContent = document.querySelector('.tab-content')
-
-  const tab = document.querySelector('.tab')
-
+ 
   let number = 0
 
-   function loadUsers() {
+  const loadUsers =(users= register.users)=>{
     removeTr()
-    register.users.forEach(user => {
-        number++;
-        const row = createRow(number, user.name, user.email, user.date, user.phone)
-        tbody.append(row)
+    number = 0
+    users.forEach(user => {
+      number++;
+      const row = createRow(number, user.name, user.email, user.date, user.phone)
+      tbody.append(row)
 
-      })
+    })
   }
 
  loadUsers()

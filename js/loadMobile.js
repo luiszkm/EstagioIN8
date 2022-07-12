@@ -5,86 +5,70 @@ const register = Register()
 
 export function LoadMobile() {
 
-
   const tabContent = document.querySelector('.tab-content')
 
   const tabHed = document.querySelector('.tab')
 
   const tabBody = document.querySelector('.tabody')
 
-  let number = 0
-
+  let value = 1
 
 
   function createButton(number) {
     const buttonNav = document.createElement('button')
     buttonNav.classList.add('tablinks')
     buttonNav.textContent = number
-    buttonNav.onclick = active
+    buttonNav.addEventListener('click', () => {
+      console.log(number);
+    })
+
+
     return buttonNav
   }
-
-  function loadTabHead() {
-    for (let i = 0; i < register.users.length; i++) {
-      const button = createButton(i + 1)
-      tabHed.append(button)
-      
-      //function teste() {
-      //   tabHed.querySelectorAll('.tablinks').forEach(button=>{
-      //     button.classList.remove('active');
-      //   })
-
-      //   tabBody.classList.add('active');
-      //   tabBody.querySelectorAll('.tabcontent').forEach(tab =>{
-      //     tab.classList.add('active');
-      //   })
-      //   this.classList.add('active');
-      // }
-    }
-  }
- 
-  function loadUsersTab(value) {
+  const loadTabHead = (users = register.users) => {
     cleanButton()
-    loadTabHead()
 
-    for (let i = 0; i < register.users.length; i++) {
-      let index = value - 1
-      const tab = createTab(
-        register.users[index].name,
-        register.users[index].email,
-        register.users[index].date,
-        register.users[index].phone)
+    for (let user in users) {
 
-      tabContent.append(tab)
+      const button = createButton(Number(user) + 1)
+      tabHed.append(button)
     }
-  }
-  load()
 
-  function load() {
+  }
+
+  const loadUsersMobile = (users = register.users) => {
+    loadTabHead(users)
+    buttonContains()
+    users.forEach(user => {
+      createTab(
+        user.name,
+        user.email,
+        user.date,
+        user.phone
+      )
+
+    })
+  }
+
+  loadUsersMobile()
+
+
+  function load(value = 0 , users = register.users) {
+    console.log(value);
+    
+    
     register.users.forEach(user => {
-      let index = number
+
       const tab = createTab(
-        register.users[index].name,
-        register.users[index].email,
-        register.users[index].date,
-        register.users[index].phone
+        users[value].name,
+        users[value].email,
+        users[value].date,
+        users[value].phone
       )
       tabContent.append(tab)
-
     })
-    loadTabHead()
+  } 
 
-  }
-
-
-  function openCard() {
-
-    cleanContent()
-    document.addEventListener('click', event => {
-      const buttonValue = event.target;
-      loadUsersTab(buttonValue.innerText)
-    })
-  }
 
   function createTab(name, email, date, phone) {
 
@@ -123,36 +107,42 @@ export function LoadMobile() {
       })
   }
 
-  function active() {
-    
-    tabHed.querySelectorAll('.tablinks').forEach(button => {
-     
+
+  function buttonContains() {
+
+    const buttonsValue = tabHed.querySelectorAll('.tablinks').forEach(button =>
       button.addEventListener('click', e => {
-        cleanContent()
-        button.classList.remove('active');
-        
         const buttonValue = e.target;
-        
-        loadUsersTab(buttonValue.innerText)
-        
-      })
-      this.classList.add('active');
-    })
-    
+        value = buttonValue.innerHTML
+
+      //  cleanContent()
+        load(Number(value)-1)
+        active(value)
+
+      }))
+
+
+  }
+
+  const active = (value) => {
+
     tabBody.classList.add('active');
-    
     tabBody.querySelectorAll('.tabcontent').forEach(tab => {
       tab.classList.add('active');
     })
-   
+    tabHed.querySelectorAll('.tablinks').forEach(button => {
 
-    
-    
+      button.classList.remove('active');
+
+      tabHed.querySelectorAll('.tablinks')[value - 1].classList.add('active')
+
+    })
   }
 
   return {
-    loadUsersTab,
-    load
+
+    loadUsersMobile
+
 
   }
 }
