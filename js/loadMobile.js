@@ -18,14 +18,11 @@ export function LoadMobile() {
     const buttonNav = document.createElement('button')
     buttonNav.classList.add('tablinks')
     buttonNav.textContent = number
-    buttonNav.addEventListener('click', () => {
-      console.log(number);
-    })
-
+ 
 
     return buttonNav
   }
-  const loadTabHead = (users = register.users) => {
+  const loadTabHead = (users = register.users) => {//carrega cabeçalho
     cleanButton()
 
     for (let user in users) {
@@ -36,7 +33,7 @@ export function LoadMobile() {
 
   }
 
-  const loadUsersMobile = (users = register.users) => {
+  const loadUsersMobile = (users = register.users) => {// carrega tabela
     loadTabHead(users)
     buttonContains()
     users.forEach(user => {
@@ -53,11 +50,11 @@ export function LoadMobile() {
   loadUsersMobile()
 
 
-  function load(value = 0 , users = register.users) {
+  const load =(value = 0 , users = register.users) =>{// att a tab de acordo com o numero selecionado 
     console.log(value);
     
     
-    register.users.forEach(user => {
+    register.users.map(user => {
 
       const tab = createTab(
         users[value].name,
@@ -71,7 +68,6 @@ export function LoadMobile() {
 
 
   function createTab(name, email, date, phone) {
-
     tabBody.innerHTML = `
     <div class="tabcontent">
       <h3>Nome</h3>
@@ -114,9 +110,8 @@ export function LoadMobile() {
       button.addEventListener('click', e => {
         const buttonValue = e.target;
         value = buttonValue.innerHTML
-
-      //  cleanContent()
-        load(Number(value)-1)
+        teste(Number(value)-1)
+      
         active(value)
 
       }))
@@ -138,9 +133,34 @@ export function LoadMobile() {
 
     })
   }
+  let allUser = register.users
+  console.log(allUser);
+
+  const showUser = (value = 0,users = allUser )=>{
+
+     allUser = users
+
+     console.log(allUser);
+     
+     allUser.map(user => {
+
+      console.log(user);
+
+      const tab = createTab(
+        users[value].name,
+        users[value].email,
+        users[value].date,
+        users[value].phone
+      )
+      tabContent.append(tab)
+    })
+   
+  }
+ 
+
 
   return {
-
+    showUser,
     loadUsersMobile
 
 

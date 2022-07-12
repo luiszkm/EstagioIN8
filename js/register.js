@@ -36,6 +36,7 @@ export function Register() {
 
 
     loadMobile.loadUsersMobile(users)
+    loadMobile.showUser(0 ,users)
     
     name.focus()
   }
