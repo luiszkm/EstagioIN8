@@ -85,7 +85,6 @@ export function LoadMobile() {
       })
   }
 
-
   function buttonContains() {
 
     const buttonsValue = tabHed.querySelectorAll('.tablinks').forEach(button =>
@@ -115,7 +114,6 @@ export function LoadMobile() {
 
     })
   }
- 
 
   const showUser = (value = 0,users = allUser )=>{
 
@@ -134,8 +132,6 @@ export function LoadMobile() {
    
   }
  
-
-
   return {
     showUser,
     loadUsersMobile
