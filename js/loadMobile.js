@@ -12,7 +12,7 @@ export function LoadMobile() {
   const tabBody = document.querySelector('.tabody')
 
   let value = 1
-
+  let allUser = register.users
 
   function createButton(number) {
     const buttonNav = document.createElement('button')
@@ -48,24 +48,6 @@ export function LoadMobile() {
   }
 
   loadUsersMobile()
-
-
-  const load =(value = 0 , users = register.users) =>{// att a tab de acordo com o numero selecionado 
-    console.log(value);
-    
-    
-    register.users.map(user => {
-
-      const tab = createTab(
-        users[value].name,
-        users[value].email,
-        users[value].date,
-        users[value].phone
-      )
-      tabContent.append(tab)
-    })
-  } 
-
 
   function createTab(name, email, date, phone) {
     tabBody.innerHTML = `
@@ -110,7 +92,7 @@ export function LoadMobile() {
       button.addEventListener('click', e => {
         const buttonValue = e.target;
         value = buttonValue.innerHTML
-        teste(Number(value)-1)
+        showUser(Number(value)-1)
       
         active(value)
 
@@ -133,18 +115,13 @@ export function LoadMobile() {
 
     })
   }
-  let allUser = register.users
-  console.log(allUser);
+ 
 
   const showUser = (value = 0,users = allUser )=>{
 
      allUser = users
-
-     console.log(allUser);
      
      allUser.map(user => {
-
-      console.log(user);
 
       const tab = createTab(
         users[value].name,
